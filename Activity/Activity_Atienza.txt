@@ -1,0 +1,35 @@
+import React, {useState} from 'react';
+import {Text, StyleSheet} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
+
+const TextInANest = () => {
+  const [titleText, setTitleText] = useState("Advance Mobile Computing");
+  const bodyText = 'Hi, I am Jennifer Atienza. A BSIT student in Global Reciprocal College. Now I am currently 3rd Year student. In our Sysarch 1 our group consist of 5 members. The title of our project is Web Based Enrollment System for Tandang Sora Integrated School. A lot';
+
+  const onPressTitle = () => {
+    setTitleText("Jennifer Atienza");
+  };
+
+  return (
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <Text style={styles.baseText}>
+          <Text style={styles.titleText} onPress={onPressTitle}>
+            {titleText}
+            {'\n'}
+            {'\n'}
+          </Text>
+          <Text numberOfLines={5}>{bodyText}</Text>
+        </Text>
+      </SafeAreaView>
+    </SafeAreaProvider>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
+
+export default TextInANest;
